@@ -7,23 +7,43 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="./script.js"></script>
-    <h1 id="header">Hello</h1>
-    <p>Howdy</p>
-    <button>Submit</button>
-    <div id="container">
-       <input type="text" id="search-bar" placeholder="0">
-       <div id="buttons">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
-       </div>
+      <div class="game-container">
+        <h1 class="title">Odd/Even Cricket Game</h1>
+        
+        <!-- Choice Screen -->
+        <div class="screen active" id="choiceScreen">
+            <p>Choose Odd or Even:</p>
+            <button class="btn" onclick="makeChoice('odd')">Odd</button>
+            <button class="btn" onclick="makeChoice('even')">Even</button>
+        </div>
+
+        <!-- Number Selection Screen -->
+        <div class="screen" id="numberScreen">
+            <p>You chose: <span id="playerChoice"></span></p>
+            <p>Choose a number (1-10):</p>
+            <div class="numbers-grid" id="numbersGrid"></div>
+        </div>
+
+        <!-- Result Screen -->
+        <div class="screen" id="resultScreen">
+            <p class="result-text">Your number: <span id="playerNumber"></span></p>
+            <p class="result-text">Computer's number: <span id="computerNumber"></span></p>
+            <p class="result-text">Sum: <span id="sum"></span></p>
+            <p class="result-text">Result: <span id="result"></span></p>
+            <p class="result-text highlight" id="winner"></p>
+            <div id="tossChoice">
+                <button class="btn" onclick="selectToss('batting')">Choose Batting</button>
+                <button class="btn" onclick="selectToss('bowling')">Choose Bowling</button>
+            </div>
+        </div>
+
+        <!-- Final Screen -->
+        <div class="screen" id="finalScreen">
+            <p class="result-text highlight" id="finalDecision"></p>
+            <button class="btn" onclick="resetGame()">Play Again</button>
+        </div>
     </div>
+      
+    <script src="./script.js"></script>
 </body>
 </html>
