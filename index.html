@@ -7,43 +7,95 @@
     <title>Document</title>
 </head>
 <body>
-      <div class="game-container">
-        <h1 class="title">Odd/Even Cricket Game</h1>
-        
-        <!-- Choice Screen -->
-        <div class="screen active" id="choiceScreen">
-            <p>Choose Odd or Even:</p>
-            <button class="btn" onclick="makeChoice('odd')">Odd</button>
-            <button class="btn" onclick="makeChoice('even')">Even</button>
-        </div>
+  <div class="game-container">
+    <h1 class="title">Cricket Game</h1>
+    
+    <!-- Initial Choice Screen -->
+    <div class="screen active" id="choiceScreen">
+        <p>Choose Odd or Even:</p>
+        <button class="btn" onclick="makeChoice('odd')">Odd</button>
+        <button class="btn" onclick="makeChoice('even')">Even</button>
+    </div>
 
-        <!-- Number Selection Screen -->
-        <div class="screen" id="numberScreen">
-            <p>You chose: <span id="playerChoice"></span></p>
-            <p>Choose a number (1-10):</p>
-            <div class="numbers-grid" id="numbersGrid"></div>
-        </div>
+    <!-- Number Selection Screen -->
+    <div class="screen" id="numberScreen">
+        <p>You chose: <span id="playerChoice"></span></p>
+        <p>Choose a number (1-10):</p>
+        <div class="numbers-grid" id="numbersGrid"></div>
+    </div>
 
-        <!-- Result Screen -->
-        <div class="screen" id="resultScreen">
-            <p class="result-text">Your number: <span id="playerNumber"></span></p>
-            <p class="result-text">Computer's number: <span id="computerNumber"></span></p>
-            <p class="result-text">Sum: <span id="sum"></span></p>
-            <p class="result-text">Result: <span id="result"></span></p>
-            <p class="result-text highlight" id="winner"></p>
-            <div id="tossChoice">
-                <button class="btn" onclick="selectToss('batting')">Choose Batting</button>
-                <button class="btn" onclick="selectToss('bowling')">Choose Bowling</button>
-            </div>
-        </div>
-
-        <!-- Final Screen -->
-        <div class="screen" id="finalScreen">
-            <p class="result-text highlight" id="finalDecision"></p>
-            <button class="btn" onclick="resetGame()">Play Again</button>
+    <!-- Toss Result Screen -->
+    <div class="screen" id="resultScreen">
+        <p class="result-text">Your number: <span id="playerNumber"></span></p>
+        <p class="result-text">Computer's number: <span id="computerNumber"></span></p>
+        <p class="result-text">Sum: <span id="sum"></span></p>
+        <p class="result-text">Result: <span id="result"></span></p>
+        <p class="result-text highlight" id="winner"></p>
+        <div id="tossChoice">
+            <button class="btn" onclick="selectToss('batting')">Choose Batting</button>
+            <button class="btn" onclick="selectToss('bowling')">Choose Bowling</button>
         </div>
     </div>
-      
+
+    <!-- Wickets Selection Screen -->
+    <div class="screen" id="wicketsScreen">
+        <p>Select number of wickets (max 10):</p>
+        <div class="numbers-grid" id="wicketsGrid"></div>
+    </div>
+
+    <!-- Game Type Selection Screen -->
+    <div class="screen" id="gameTypeScreen">
+        <p>Select Game Type:</p>
+        <button class="btn" onclick="selectGameType('classic')">Classic (1-6)</button>
+        <button class="btn" onclick="selectGameType('ultimate')">Ultimate (1-10)</button>
+    </div>
+
+    <!-- Main Game Screen -->
+    <div class="screen" id="gameScreen">
+      <div class="scoreboard">
+          <div>
+              <h2>Scoreboard</h2>
+              <p>Score: <span id="currentScore">0/0</span></p>
+              <p>Overs: <span id="oversCount">0.0</span></p>
+              <p>Run Rate: <span id="runRate">0.00</span></p>
+          </div>
+          <div>
+              <p>Batting: <span id="battingTeam"></span></p>
+              <p id="targetDisplay" class="target-info"></p>
+              <p>Required Rate: <span id="reqRate">-</span></p>
+          </div>
+      </div>
+      <div id="gameNumbers" class="numbers-grid"></div>
+      <div class="stats-container">
+          <div class="stats-box">
+              <h3>Current Innings</h3>
+              <p>Boundaries: <span id="boundaries">0</span></p>
+              <p>Dot Balls: <span id="dotBalls">0</span></p>
+              <p>Best Over: <span id="bestOver">-</span></p>
+          </div>
+          <div class="stats-box">
+              <h3>Match Stats</h3>
+              <p>Highest Score: <span id="highestScore">0</span></p>
+              <p>Best Strike Rate: <span id="bestStrikeRate">0</span></p>
+              <p>Wickets This Over: <span id="wicketsThisOver">0</span></p>
+          </div>
+      </div>
+      <div class="game-history" id="gameHistory"></div>
+  </div>
+</div>
+
+    <!-- Final Score Screen -->
+    <div class="screen" id="finalScreen">
+        <h2>Game Over!</h2>
+        <p class="result-text" id="finalScore"></p>
+        <button class="btn" onclick="resetGame()">Play Again</button>
+    </div>
+</div>
+  
+<audio id="runSound" src="https://cdn.freesound.org/previews/536/536108_11367375-lq.mp3"></audio>
+<audio id="boundarySound" src="https://cdn.freesound.org/previews/536/536109_11367375-lq.mp3"></audio>
+<audio id="wicketSound" src="https://cdn.freesound.org/previews/536/536110_11367375-lq.mp3"></audio>
+
     <script src="./script.js"></script>
 </body>
 </html>
